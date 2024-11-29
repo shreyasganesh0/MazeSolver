@@ -5,13 +5,12 @@ def main():
     width = 800
     height = 600
     wind = Window(width, height)
-    
-    for i in range(10, width, 2+wind.cell_size//(height//100)):
-        for j in range(10,height, 2+wind.cell_size//(width//100)):
-            print(i,j, "coords")
-            startpoint = Point(j,i)
-            cell = Cell(startpoint, wind, False,True, True, True)
-            cell.draw()
+    startpoint = Point(30,30)
+    cell = Cell(startpoint, wind, False,True, True, False)
+    cell.draw()
+    to_cell = Cell(Point(100,30),wind, False, True, True, True)
+    to_cell.draw()
+    cell.draw_path(to_cell, True)
     wind.wait_for_close()
     print("in main")
 
