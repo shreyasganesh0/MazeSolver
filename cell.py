@@ -36,27 +36,28 @@ class Cell:
             lineobj.draw(self._win.canvas, "White")
 
     def draw_path(self, to_cell, undo = False):
+        print(self._centerx, self._centery)
+        print(to_cell._centerx, to_cell._centery)
         x_diff = abs(self._centerx - to_cell._centerx)
         y_diff = abs(self._centery - to_cell._centery)
         minx = min(self._centerx, to_cell._centerx)
         miny = min(self._centery, to_cell._centery)
+        
+        if (x_diff) and (y_diff):
+            point_line = Point(x_diff+minx, miny)
+        else:
 
-        pointx_line = Point(x_diff + minx, minx) 
-        pointy_line = Point(y_diff + miny, miny) 
+            point_line = Point(x_diff+minx, y_diff+miny) 
+
+
         point_curr_cell = Point(self._centerx, self._centery)
         point_to_cell = Point(to_cell._centerx, to_cell._centery)
         
+        print(point_line.x, point_line.y) 
         
-        if(minx == self._centerx):
-            
-            line1  = Line(point_curr_cell, pointx_line)
-        else:
-            line1 =  Line(point_to_cell, pointx_line)
-        if(miny == self._centery):
-            
-            line2  = Line(point_curr_cell, pointy_line)
-        else:
-            line2 =  Line(point_to_cell, pointy_line)
+        line1  = Line(point_curr_cell, point_line)
+        
+        line2 =  Line(point_to_cell, point_line)
         fill_color = "red" if undo else "gray"
         line1.draw(self._win.canvas, fill_color)
         line2.draw(self._win.canvas, fill_color)

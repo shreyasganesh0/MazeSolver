@@ -8,7 +8,7 @@ def main():
     startpoint = Point(30,30)
     cell = Cell(startpoint, wind, False,True, True, False)
     cell.draw()
-    to_cell = Cell(Point(100,30),wind, False, True, True, True)
+    to_cell = Cell(Point(100,100),wind, False, True, True, True)
     to_cell.draw()
     cell.draw_path(to_cell, True)
     wind.wait_for_close()
