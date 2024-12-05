@@ -20,6 +20,7 @@ class Cell:
         self.point3 = Point(self._topleftx , self._toplefty+self.side_len)
         self.point4 = Point(self._topleftx , self._toplefty)
     def draw(self):
+        print("in cell draw")
         if self.has_rightwall:
             lineobj = Line(self.point1, self.point2) 
             lineobj.draw(self._win.canvas, "White")
