@@ -6,7 +6,7 @@ def main():
     height = 600
     wind = Window(width, height)
     startpoint = Point(30,30)
-    maze = Maze(startpoint, wind)
+    maze = Maze(startpoint, wind, 10, 10)
     maze.draw_cells()
     wind.wait_for_close()
     print("in main")

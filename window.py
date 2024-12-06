@@ -10,7 +10,6 @@ class Window:
         self.canvas.pack()
         self.is_running = False # set to true if the window is running
         self.root.protocol("WM_DELETE_WINDOW", self.close)
-        self.cell_size = (height*width)//100
         self.width = width
         self.height = height
         
